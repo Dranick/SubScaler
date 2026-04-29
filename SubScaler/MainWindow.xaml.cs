@@ -1,7 +1,7 @@
 ﻿/*
  * SubScaler Pro - Native Subtitle Rescaler & Encoder
  * License: BSD 3-Clause License
- * Copyright (c) 2026 NIIcK. All rights reserved.
+ * Copyright (c) 2026 DraNick. All rights reserved.
  * License URL: https://opensource.org/license/bsd-3-clause
  */
 
@@ -68,7 +68,6 @@ namespace SubScaler
             string targetFpsInput = TxtVideoFPS.Text.Replace(',', '.');
             bool isEncodingOverrideEnabled = ChkChangeEncoding.IsChecked ?? false;
 
-            // Fixed: Added null-coalescing to prevent null warnings
             string inExtension = (ComboInExt.SelectedItem as ComboBoxItem)?.Content?.ToString()?.ToLower() ?? ".sub";
             string outExtension = (ComboOutExt.SelectedItem as ComboBoxItem)?.Content?.ToString()?.ToLower() ?? ".srt";
             string inEncLabel = (ComboInEnc.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "UTF-8 (65001)";
@@ -85,7 +84,7 @@ namespace SubScaler
             {
                 double sourceFps = double.Parse(sourceFpsInput, CultureInfo.InvariantCulture);
                 double targetFps = double.Parse(targetFpsInput, CultureInfo.InvariantCulture);
-                double scalingFactor = sourceFps / targetFps; // Frame-perfect scaling ratio
+                double scalingFactor = sourceFps / targetFps;
 
                 Encoding encodingIn = isEncodingOverrideEnabled ? MapMpcEncoding(inEncLabel) : Encoding.UTF8;
                 Encoding encodingOut = isEncodingOverrideEnabled ? MapMpcEncoding(outEncLabel) : Encoding.UTF8;
@@ -107,8 +106,9 @@ namespace SubScaler
                     string rawContent = await Task.Run(() => File.ReadAllText(file, encodingIn));
 
                     string processedContent = await Task.Run(() => {
-                        bool isSourceFrameBased = (inExtension == ".sub" || inExtension == ".txt");
-                        bool isTargetFrameBased = (outExtension == ".sub" || outExtension == ".txt");
+                        // Added .mdvd to frame-based checks
+                        bool isSourceFrameBased = (inExtension == ".sub" || inExtension == ".txt" || inExtension == ".mdvd");
+                        bool isTargetFrameBased = (outExtension == ".sub" || outExtension == ".txt" || outExtension == ".mdvd");
 
                         if (isSourceFrameBased && outExtension == ".srt")
                             return ConvertFrameToTime(rawContent, sourceFps, targetFps);
@@ -131,7 +131,6 @@ namespace SubScaler
             finally { BtnStart.IsEnabled = true; Log("\n--- BATCH PROCESSING FINISHED ---"); }
         }
 
-        // Fixed: Added nullable string support and internal null check to resolve warnings
         private Encoding MapMpcEncoding(string? label)
         {
             if (string.IsNullOrEmpty(label)) return Encoding.UTF8;

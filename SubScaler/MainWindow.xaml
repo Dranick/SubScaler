@@ -73,6 +73,7 @@
                         <ComboBoxItem Content=".sub" IsSelected="True"/>
                         <ComboBoxItem Content=".srt"/>
                         <ComboBoxItem Content=".txt"/>
+                        <ComboBoxItem Content=".mdvd"/>
                     </ComboBox>
                     <Label Content="Input Encoding (MPC Scripts):" Foreground="{DynamicResource AppFore}"/>
                     <ComboBox x:Name="ComboInEnc" Background="{DynamicResource ControlBack}" Foreground="Black">
@@ -95,6 +96,7 @@
                         <ComboBoxItem Content=".srt" IsSelected="True"/>
                         <ComboBoxItem Content=".sub"/>
                         <ComboBoxItem Content=".txt"/>
+                        <ComboBoxItem Content=".mdvd"/>
                     </ComboBox>
                     <Label Content="Output Encoding:" Foreground="{DynamicResource AppFore}"/>
                     <ComboBox x:Name="ComboOutEnc" Background="{DynamicResource ControlBack}" Foreground="Black">
