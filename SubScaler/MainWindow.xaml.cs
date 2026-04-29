@@ -228,7 +228,7 @@ namespace SubScaler
 
         private void About_Click(object sender, RoutedEventArgs e)
         {
-            string info = "SubScaler Pro v1.2\n" +
+            string info = "SubScaler Pro v1.3\n" +
                           "Copyright (c) 2026 DraNick. All rights reserved.\n\n" +
                           "Distributed under BSD 3-Clause License\n" +
                           "License Details: https://opensource.org/license/bsd-3-clause\n" +

@@ -1,11 +1,11 @@
-# SubScaler Pro v1.2
+# SubScaler Pro v1.3
 
 **SubScaler Pro** is a lightweight, high-precision desktop utility designed to batch process subtitle files. It specializes in rescaling timestamps or frame numbers based on frame rate (FPS) differences and converting between various character encodings to ensure perfect compatibility with modern and legacy media players.
 
 ## 🚀 Features
 
 * **Frame-Perfect Rescaling:** Uses high-precision scaling factors to sync subtitles perfectly between different video sources (e.g., 25 FPS to 23.976 FPS).
-* **Multi-Format Support:** Full support for `.srt` (SubRip), `.sub` (MicroDVD), and `.txt` formats for both input and output.
+* **Multi-Format Support:** Full support for `.srt` (SubRip), `.sub` (MicroDVD), `.mdvd` and `.txt` formats for both input and output.
 * **MPC-Style Encodings:** Includes a comprehensive list of character encodings identical to Media Player Classic (MPC), resolving "mojibake" or broken character issues in Central European, Cyrillic, Greek, and other scripts.
 * **Intelligent Conversion:** Automatically handles conversions between time-based (SRT) and frame-based (SUB/TXT) formats.
 * **Safety First:** Automatically creates backups of your original files before processing.
