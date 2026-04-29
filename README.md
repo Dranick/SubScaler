@@ -1,4 +1,4 @@
-# 🎬 SubScaler Pro v1.3
+# 🎬 SubScaler Pro
 
 **SubScaler Pro** is a lightweight, high-performance desktop utility designed for precision subtitle synchronization and batch processing. It is built as a **Visual Studio project in C# using .NET 10 (LTS)**, ensuring long-term support and top-tier performance.
 
