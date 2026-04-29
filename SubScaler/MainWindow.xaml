@@ -1,0 +1,139 @@
+﻿<Window x:Class="SubScaler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SubScaler Pro v1.2" Height="850" Width="1000"
+        Background="{DynamicResource AppBack}"
+        Foreground="{DynamicResource AppFore}">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="AppBack" Color="#121212"/>
+        <SolidColorBrush x:Key="AppFore" Color="White"/>
+        <SolidColorBrush x:Key="ControlBack" Color="#C8C8C8"/>
+        <SolidColorBrush x:Key="InputBack" Color="#2D2D2D"/>
+        <SolidColorBrush x:Key="InputFore" Color="White"/>
+    </Window.Resources>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="0,0,0,20">
+            <StackPanel HorizontalAlignment="Left">
+                <TextBlock Text="SubScaler Pro" FontSize="32" FontWeight="Bold" Foreground="{DynamicResource AppFore}"/>
+                <TextBlock Text="Native Subtitle Rescaler &amp; Encoder" FontSize="16" Opacity="0.8" Foreground="{DynamicResource AppFore}"/>
+            </StackPanel>
+            <ComboBox x:Name="ComboTheme" Width="150" VerticalAlignment="Top" HorizontalAlignment="Right" 
+                      SelectionChanged="Theme_Changed" SelectedIndex="0">
+                <ComboBoxItem Content="Dark Mode"/>
+                <ComboBoxItem Content="Light Mode"/>
+            </ComboBox>
+        </Grid>
+
+        <GroupBox Grid.Row="1" Header="Path Configuration" Foreground="{DynamicResource AppFore}" Margin="0,0,0,20" Padding="10">
+            <StackPanel>
+                <Label Content="Source Folder:" Foreground="{DynamicResource AppFore}"/>
+                <Grid Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="TxtSource" Height="30" Background="{DynamicResource InputBack}" Foreground="{DynamicResource InputFore}" VerticalContentAlignment="Center" Padding="5,0"/>
+                    <Button Grid.Column="1" Content="Browse" Width="80" Margin="10,0,0,0" Click="BrowseSource_Click" Background="{DynamicResource ControlBack}" Foreground="Black"/>
+                </Grid>
+
+                <Label Content="Backup Folder (Name or Path):" Foreground="{DynamicResource AppFore}"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="TxtBackup" Height="30" Text="original_backup" Background="{DynamicResource InputBack}" Foreground="{DynamicResource InputFore}" VerticalContentAlignment="Center" Padding="5,0"/>
+                    <Button Grid.Column="1" Content="Browse" Width="80" Margin="10,0,0,0" Click="BrowseBackup_Click" Background="{DynamicResource ControlBack}" Foreground="Black"/>
+                </Grid>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Grid.Row="2" Header="Format &amp; Scaling Settings" Foreground="{DynamicResource AppFore}" Margin="0,0,0,20" Padding="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                    <CheckBox x:Name="ChkChangeEncoding" Content="Override character encoding?" Foreground="{DynamicResource AppFore}" Margin="0,0,0,10"/>
+                    <Label Content="Input Extension:" Foreground="{DynamicResource AppFore}"/>
+                    <ComboBox x:Name="ComboInExt" Margin="0,0,0,10" Background="{DynamicResource ControlBack}" Foreground="Black">
+                        <ComboBoxItem Content=".sub" IsSelected="True"/>
+                        <ComboBoxItem Content=".srt"/>
+                        <ComboBoxItem Content=".txt"/>
+                    </ComboBox>
+                    <Label Content="Input Encoding (MPC Scripts):" Foreground="{DynamicResource AppFore}"/>
+                    <ComboBox x:Name="ComboInEnc" Background="{DynamicResource ControlBack}" Foreground="Black">
+                        <ComboBoxItem Content="Western (1252)"/>
+                        <ComboBoxItem Content="Central European (1250)" IsSelected="True"/>
+                        <ComboBoxItem Content="Cyrillic (1251)"/>
+                        <ComboBoxItem Content="Greek (1253)"/>
+                        <ComboBoxItem Content="Turkish (1254)"/>
+                        <ComboBoxItem Content="Hebrew (1255)"/>
+                        <ComboBoxItem Content="Arabic (1256)"/>
+                        <ComboBoxItem Content="Baltic (1257)"/>
+                        <ComboBoxItem Content="Vietnamese (1258)"/>
+                        <ComboBoxItem Content="UTF-8 (65001)"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Margin="10,0,10,0">
+                    <Label Content="Output Extension:" Foreground="{DynamicResource AppFore}" Margin="0,26,0,0"/>
+                    <ComboBox x:Name="ComboOutExt" Margin="0,0,0,10" Background="{DynamicResource ControlBack}" Foreground="Black">
+                        <ComboBoxItem Content=".srt" IsSelected="True"/>
+                        <ComboBoxItem Content=".sub"/>
+                        <ComboBoxItem Content=".txt"/>
+                    </ComboBox>
+                    <Label Content="Output Encoding:" Foreground="{DynamicResource AppFore}"/>
+                    <ComboBox x:Name="ComboOutEnc" Background="{DynamicResource ControlBack}" Foreground="Black">
+                        <ComboBoxItem Content="Western (1252)"/>
+                        <ComboBoxItem Content="Central European (1250)"/>
+                        <ComboBoxItem Content="Cyrillic (1251)"/>
+                        <ComboBoxItem Content="Greek (1253)"/>
+                        <ComboBoxItem Content="Turkish (1254)"/>
+                        <ComboBoxItem Content="Hebrew (1255)"/>
+                        <ComboBoxItem Content="Arabic (1256)"/>
+                        <ComboBoxItem Content="Baltic (1257)"/>
+                        <ComboBoxItem Content="Vietnamese (1258)"/>
+                        <ComboBoxItem Content="UTF-8 (65001)" IsSelected="True"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <Border Grid.Column="2" BorderBrush="{DynamicResource AppFore}" BorderThickness="1,0,0,0" Padding="20,0,0,0">
+                    <StackPanel>
+                        <TextBlock Text="Sync Parameters" FontWeight="Bold" Foreground="{DynamicResource AppFore}" Margin="0,0,0,10"/>
+                        <StackPanel Margin="0,0,0,10">
+                            <Label Content="Source Subtitle FPS:" Foreground="{DynamicResource AppFore}"/>
+                            <TextBox x:Name="TxtSubFPS" Text="25" Width="120" Height="30" Background="{DynamicResource InputBack}" Foreground="{DynamicResource InputFore}" VerticalContentAlignment="Center" Padding="5,0" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="Target Video FPS:" Foreground="{DynamicResource AppFore}"/>
+                            <TextBox x:Name="TxtVideoFPS" Text="23.976" Width="120" Height="30" Background="{DynamicResource InputBack}" Foreground="{DynamicResource InputFore}" VerticalContentAlignment="Center" Padding="5,0" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </GroupBox>
+
+        <TextBox Grid.Row="3" x:Name="TxtLog" IsReadOnly="True" VerticalScrollBarVisibility="Auto" 
+                 Background="Black" Foreground="#00FF00" FontFamily="Consolas" FontSize="14" Padding="10"/>
+
+        <Grid Grid.Row="4" Margin="0,20,0,0">
+            <Button x:Name="BtnAbout" Content="About" HorizontalAlignment="Left" Background="Transparent" BorderThickness="0" Foreground="{DynamicResource AppFore}" Click="About_Click"/>
+            <Button x:Name="BtnStart" Content="START PROCESSING" HorizontalAlignment="Right" Width="250" Height="50" 
+                    Background="#2E7D32" Foreground="White" FontSize="18" FontWeight="Bold" Click="BtnStart_Click"/>
+        </Grid>
+    </Grid>
+</Window>
