@@ -1,6 +1,6 @@
 # 🎬 SubScaler Pro v1.2
 
-**SubScaler Pro** is a lightweight, high-performance desktop utility designed for precision subtitle synchronization and batch processing. It specializes in rescaling timestamps or frame numbers based on frame rate (FPS) differences and converting between various character encodings to ensure perfect compatibility with modern and legacy media players.
+**SubScaler Pro** is a lightweight, high-performance desktop utility designed for precision subtitle synchronization and batch processing. It is built as a **Visual Studio project in C# using .NET 10 (LTS)**, ensuring long-term support and top-tier performance.
 
 ---
 
@@ -10,7 +10,7 @@
 | :--- | :--- |
 | **High-Precision Scaling** | Uses a core algorithm that calculates scaling factors dynamically for every timestamp, effectively **eliminating the cumulative error effect** (drift). |
 | **Native Batch Processing** | Designed to handle entire folders at once. Performs encoding and conversion across all files in seconds. |
-| **Pure C# Engine** | A native .NET application that does **not** require `ffmpeg` or any other external binaries to function. |
+| **Modern Stack** | Developed in **C# / .NET 10 LTS**. It does **not** require `ffmpeg` or any other external binaries to function. |
 | **Intelligent Formatting** | Automatically handles conversions between time-based (SRT) and frame-based (SUB/TXT) formats on the fly. |
 | **MPC-Style Encodings** | Identical character encoding scripts to **Media Player Classic (MPC)**, fixing "mojibake" or broken characters. |
 | **Portable (Single EXE)** | Self-contained executable with all dependencies included. No installation required. |
@@ -48,6 +48,7 @@ Matches the standard Media Player Classic scripts:
 
 * **Automatic Backups:** Every file is backed up before modification.
 * **Modern UI:** Native Dark and Light Mode support for a comfortable experience.
+* **Development:** Built with **Visual Studio** using modern C# patterns.
 
 ---
 
