@@ -1,7 +1,7 @@
 ﻿/*
  * SubScaler Pro - Native Subtitle Rescaler & Encoder
  * License: BSD 3-Clause License
- * Copyright (c) 2026 NIIcK. All rights reserved.
+ * Copyright (c) 2026 DraNick. All rights reserved.
  * License URL: https://opensource.org/license/bsd-3-clause
  */
 
