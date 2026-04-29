@@ -1,4 +1,4 @@
-# SubScaler Pro v1.3
+# SubScaler Pro
 
 **SubScaler Pro** is a lightweight, high-precision desktop utility designed to batch process subtitle files. It specializes in rescaling timestamps or frame numbers based on frame rate (FPS) differences and converting between various character encodings to ensure perfect compatibility with modern and legacy media players.
 
